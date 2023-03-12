@@ -12,14 +12,12 @@ final class ViewModel: ObservableObject {
     
     @Published var repositoryList = [ItemInfo]()
     @Published var searchText = ""
-    @Published var error: NetworkError?
+    @Published var error: NetworkError? = nil
     @Published var isLoading: Bool = false
     
     private var cancellable = Set<AnyCancellable>()
     
     init() {
-        isLoading = false
-        error = nil
         addSubscribers()
     }
     
