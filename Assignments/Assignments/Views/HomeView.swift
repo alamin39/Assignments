@@ -29,11 +29,10 @@ struct HomeView: View {
                 }
                 else {
                     List {
-                        ForEach(viewModel.repositoryList, id: \.full_name) { gitRepo in
-                            NavigationLink {
-                                DetailView(url: URL(string: gitRepo.html_url ?? ""))
-                            } label: {
-                                Text(gitRepo.full_name ?? "")
+                        ForEach(viewModel.repositoryList, id: \.fullName) { gitRepo in
+                            let url = URL(string: gitRepo.htmlURL ?? "")!
+                            Link(destination: url) {
+                                Text(gitRepo.fullName ?? "")
                             }
                             .padding(12)
                         }

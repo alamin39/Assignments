@@ -8,7 +8,7 @@
 import XCTest
 
 final class AssignmentsUITests: XCTestCase {
-
+    
     var app: XCUIApplication!
     var searchField: XCUIElement!
     
@@ -19,11 +19,11 @@ final class AssignmentsUITests: XCTestCase {
         app.launch()
         searchField = app.searchFields.firstMatch
     }
-
+    
     override func tearDown() {
         app = nil
     }
-
+    
     func test_SearchField_is_enabled() {
         let navigationBar = app.navigationBars["Github Repositories"]
         

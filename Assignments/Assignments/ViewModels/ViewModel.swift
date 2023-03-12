@@ -58,7 +58,6 @@ final class ViewModel: ObservableObject {
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTaskPublisher(for: url)
-            .subscribe(on: DispatchQueue.global(qos: .default))
             .tryMap { res in
                 guard let response = res.response as? HTTPURLResponse else {
                     throw NetworkError.invalidResponse
